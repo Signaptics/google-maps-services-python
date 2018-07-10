@@ -293,8 +293,9 @@ def places_radar(client, location, radius, keyword=None, min_price=None,
             html_attributions: set of attributions which must be displayed
 
     """
-    if not (keyword or name):
-        raise ValueError("either a keyword or name is required")
+
+    if not (keyword or name or type):
+        raise ValueError("either a keyword, name or type is required")
 
     from warnings import warn
     warn("places_radar is deprecated, see http://goo.gl/BGiumE",

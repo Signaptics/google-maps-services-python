@@ -236,8 +236,8 @@ def places_nearby(client, location=None, radius=None, keyword=None,
     if not location and not page_token:
         raise ValueError("either a location or page_token arg is required")
     if rank_by == "distance":
-        if not (keyword or name or type):
-            raise ValueError("either a keyword, name, or type arg is required "
+        if not (keyword or name):
+            raise ValueError("either a keyword or name is required "
                              "when rank_by is set to distance")
         elif radius is not None:
             raise ValueError("radius cannot be specified when rank_by is set to "
@@ -293,8 +293,8 @@ def places_radar(client, location, radius, keyword=None, min_price=None,
             html_attributions: set of attributions which must be displayed
 
     """
-    if not (keyword or name or type):
-        raise ValueError("either a keyword, name, or type arg is required")
+    if not (keyword or name):
+        raise ValueError("either a keyword or name is required")
 
     from warnings import warn
     warn("places_radar is deprecated, see http://goo.gl/BGiumE",
